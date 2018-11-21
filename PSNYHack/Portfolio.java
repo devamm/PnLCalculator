@@ -42,16 +42,10 @@ public class Portfolio {
 	    	  //get value 
 	    	  double value = singlePortfolio.UnitsofHolding * singlePortfolio.Price;
 	    	  value = value / FXConvert.convertFXtoUSD(singlePortfolio.Currency);
-	    	  totalValue = value;
+	    	  totalValue += value;
 	    	 
 	      }
-	     
-	      if(fileName == "PSNYHack_Portfolio_PREV_EOD.csv"){
-	    	  DecimalFormat decimalFormat = new DecimalFormat("#.00");
-	    	  System.out.println("Current value of portfolio in USD: $"+decimalFormat.format(totalValue)+"\n");
-	      } else {
-	    	  System.out.println("NEW VAL "+totalValue);
-	      }
+	    
 	}
 	
 	
@@ -60,9 +54,11 @@ public class Portfolio {
 		//1. populate portfolio with EOD data
 		//get current value of EOD
 	    //System.out.println("Listening for real-time updates"); 
-	    Portfolio Global = new Portfolio("PSNYHack_Portfolio_PREV_EOD.csv");
+		DecimalFormat decimalFormat = new DecimalFormat("#.00");
+		Portfolio Global = new Portfolio("PSNYHack_Portfolio_PREV_EOD.csv");
 	    double startVal = Global.totalValue;
-	    System.out.print("Initial Value: "+startVal);
+	    //System.out.print("Initial Value: "+startVal);
+	    System.out.println("Initial value of portfolio in USD: $"+decimalFormat.format(Global.totalValue)+"\n");
 
 
 
