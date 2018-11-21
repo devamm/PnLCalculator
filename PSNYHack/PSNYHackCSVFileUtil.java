@@ -9,7 +9,7 @@ import java.io.IOException;
 public class PSNYHackCSVFileUtil {
 
 public List<PortfolioVO> processFile(String filePath) {
-		
+		System.out.println("Opening file: "+filePath);
   	    //filePath = "PSNYHack_Portfolio_PREV_EOD.csv";
         String line = "";
         boolean skipHeader = true;
